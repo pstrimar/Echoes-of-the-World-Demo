@@ -7,42 +7,31 @@ public class Cane : MonoBehaviour, ISoundMaker
 {
     [SerializeField] Transform tapPosition;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] Transform caneHolder;
-    [SerializeField] int tapAngle = 25;
     [SerializeField] AudioSource source;
     private ThirdPersonController movement;
+    private int _animIDTap;
+    private Animator animator;
 
     public float illuminationMultiplier => 1f;
 
     void Start()
     {
         movement = GetComponent<ThirdPersonController>();
+        animator = GetComponent<Animator>();
+        _animIDTap = Animator.StringToHash("Tap");
     }
 
     void Update()
     {
         if (movement.Grounded && Input.GetMouseButtonDown(0))
         {
-            StopAllCoroutines();
-            StartCoroutine(Tap());
+            animator.SetTrigger(_animIDTap);
         }
     }
 
-    IEnumerator Tap()
+    void Tap()
     {
-        caneHolder.rotation = Quaternion.identity;
-        for (int i = 0; i < tapAngle; i++)
-        {
-            caneHolder.localRotation = Quaternion.Euler(-i, 0, 0);
-            yield return null;
-        }
-
-        for (int i = tapAngle; i >= 0; i--)
-        {
-            caneHolder.localRotation = Quaternion.Euler(-i, 0, 0);
-            yield return null;
-        }
-        if (Physics.Raycast(tapPosition.position, Vector3.down, out RaycastHit hitInfo, .5f, groundLayer))
+        if (Physics.Raycast(tapPosition.position, Vector3.down, out RaycastHit hitInfo, 2f, groundLayer))
         {
             Clicky.Illuminate(hitInfo.point, hitInfo.normal, illuminationMultiplier);
             source.Play();

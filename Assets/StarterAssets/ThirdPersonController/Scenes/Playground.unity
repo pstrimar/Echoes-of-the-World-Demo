@@ -1194,38 +1194,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8345070700268369567}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1017014981
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1017014982}
-  m_Layer: 8
-  m_Name: CaneHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1017014982
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017014981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.285, y: 0.779, z: 0.037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1140937215}
-  m_Father: {fileID: 3893294199639930361}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028513131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1259,12 @@ Transform:
   m_Father: {fileID: 2114283753834967213}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1032276398 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 147f79ab9774c434ba52aa08eb174a71,
+    type: 3}
+  m_PrefabInstance: {fileID: 372419494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1046661243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,15 +1494,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140937214}
-  m_LocalRotation: {x: -0.37940946, y: -0.120590515, z: -0.049950223, w: 0.9159756}
-  m_LocalPosition: {x: -0.121, y: -0.4, z: 0.393}
-  m_LocalScale: {x: 0.05, y: 0.5, z: 0.05}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6407799, w: 0.7677247}
+  m_LocalPosition: {x: -0.33, y: 0.02, z: 0.03}
+  m_LocalScale: {x: 0.05000001, y: 0.6, z: 0.049999997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1445183957}
-  m_Father: {fileID: 1017014982}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -45, y: -15, z: 0}
+  m_Father: {fileID: 1032276398}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -79.7}
 --- !u!82 &1140937216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2479,7 +2453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445183956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.81, z: 1.86}
+  m_LocalPosition: {x: -0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3021,8 +2995,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
-  caneHolder: {fileID: 1017014982}
-  tapAngle: 25
   source: {fileID: 1140937216}
 --- !u!1 &1764214107
 GameObject:
@@ -4931,7 +4903,6 @@ Transform:
   - {fileID: 8338988565591873055}
   - {fileID: 8002264680806281515}
   - {fileID: 272993188152429408}
-  - {fileID: 1017014982}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6306,9 +6277,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 87247872013694825, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 87247872013694825, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f92a023203183f64eacb3d39630743e8, type: 2}
+    - target: {fileID: 87247872013694825, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84e7016ae049e3a478abd2f46ba4ba7b, type: 2}
     - target: {fileID: 232507469007650255, guid: 09aade0ecefd01e4b8f7661acf64f5c2,
         type: 3}
       propertyPath: m_CastShadows
