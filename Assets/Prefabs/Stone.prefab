@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1ba28dd31609f4688cb3e9a1d086c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToLive: 2
+  timeToLive: 1.5
   impactCount: 1
   forceMultiplier: 10
 --- !u!23 &5940184745542395652
@@ -125,7 +125,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2d6359166b256b54cacbf55589869402, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9097866d3f3859a4394eae1803f919ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
