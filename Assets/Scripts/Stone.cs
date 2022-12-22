@@ -53,9 +53,5 @@ public class Stone : MonoBehaviour, ISoundMaker
             source.Play();
             impacts++;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 }
