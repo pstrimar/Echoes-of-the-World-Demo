@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oscillation : MonoBehaviour
+public class Oscillation : Interactable
 {
     [SerializeField] Vector3 movementVector = new Vector3(0f, 0f, 0f);
     float movementFactor;
@@ -10,6 +10,7 @@ public class Oscillation : MonoBehaviour
     [SerializeField] float period = 4f; // time for 1 cycle (4 secs)
 
     Vector3 startingpos;
+
 
     void Start()
     {
@@ -28,5 +29,10 @@ public class Oscillation : MonoBehaviour
 
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingpos + offset;
+    }
+
+    public override void Interact()
+    {
+        enabled = true;
     }
 }

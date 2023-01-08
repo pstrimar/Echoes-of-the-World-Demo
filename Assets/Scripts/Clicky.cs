@@ -11,11 +11,7 @@ public class Clicky : MonoBehaviour
     private static bool _isActive = false;
     private static float _lerpPos = .85f;
     private static float illuminationFactor;
-    //private static GameObject scanVFX;
     private static List<GameObject> scanVFX = new List<GameObject>();
-    private static float scanStartScale1 = 0.08f;
-    private static float scanStartScale2 = 0.08f;
-    private static float scanStartScale3 = 0.08f;
     private static float[] scanStartScale = new float[] {.08f, 1.08f, 2.08f};
     
     void Start()
