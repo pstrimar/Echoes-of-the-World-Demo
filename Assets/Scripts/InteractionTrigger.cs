@@ -28,7 +28,7 @@ public class InteractionTrigger : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && interactor && !message.gameObject.activeSelf)
+        if (other.tag == "Player" && interactor && (!isMessage || message && !message.gameObject.activeSelf))
         {
             DisplayPrompt(interactor.CanInteract(lookAt.position));
         }
