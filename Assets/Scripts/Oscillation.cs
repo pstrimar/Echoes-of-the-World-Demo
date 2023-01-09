@@ -11,7 +11,6 @@ public class Oscillation : Interactable
 
     Vector3 startingpos;
 
-
     void Start()
     {
         startingpos = transform.position;
@@ -33,6 +32,6 @@ public class Oscillation : Interactable
 
     public override void Interact()
     {
-        enabled = true;
+        enabled = !enabled;
     }
 }

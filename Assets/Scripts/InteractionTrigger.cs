@@ -1,21 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class InteractionTrigger : MonoBehaviour
 {
-    public RectTransform interactionPrompt;
     public Interactable interactable;
-
-    bool insideTrigger;
+    private Interactor interactor;
+    public Transform lookAt;
+    public string actionName;
+    public string messageText;
+    public GameObject interactionPrompt;
+    public BrailleToText message;
+    public bool isMessage;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            DisplayPrompt(true);
-            insideTrigger = true;
+            SetText();
+            interactor = other.GetComponent<Interactor>();
+            interactor.interactionTrigger = this;
+            interactor.lookAt = lookAt;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && interactor && !message.gameObject.activeSelf)
+        {
+            DisplayPrompt(interactor.CanInteract(lookAt.position));
         }
     }
 
@@ -24,27 +39,27 @@ public class InteractionTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             DisplayPrompt(false);
-            insideTrigger = false;
+            if (message)
+            {
+                message.gameObject.SetActive(false);
+            }
+            interactor.interactionTrigger = null;
+            interactor.lookAt = null;
+            interactor = null;
         }
     }
 
-    void Update()
+    void SetText()
     {
-        if (insideTrigger && Input.GetKeyDown(KeyCode.E))
+        interactionPrompt.GetComponentInChildren<TextMeshProUGUI>().text = isMessage ? "[E] Read" : "[E] Interact";
+        if (isMessage && message)
         {
-            Interact();
+            message.messageText.text = messageText;
         }
-    }
-
-    public void Interact()
-    {
-        interactable.Interact();
-        DisplayPrompt(false);
-        enabled = false;
     }
 
     public void DisplayPrompt(bool visible)
     {
-        interactionPrompt.gameObject.SetActive(visible);
+        interactionPrompt.SetActive(visible);
     }
 }
